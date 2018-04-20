@@ -1,2 +1,1 @@
-# Canvas-Regrade-Scraper
-ReadMe goes here.
+# Canvas-Regrade-Assistant

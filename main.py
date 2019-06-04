@@ -1,4 +1,4 @@
-from PySide import QtCore, QtGui # Import the PySide modules
+from PySide2 import QtCore, QtGui, QtWidgets # Import the PySide modules
 import sys, logging #need sys so that we can pass argv to QApplication
 import os, datetime
 import bs, canvas_driver #import WebDriver, scraper files
@@ -20,7 +20,7 @@ class LogThread(QtCore.QThread):
         print("something")
         sys.stdout = QTextStream(printed_text=self.normalOutputWritten)
 
-class LoginWindow(QtGui.QDialog, login_dialog.Ui_LoginBox):
+class LoginWindow(QtWidgets.QDialog, login_dialog.Ui_LoginBox):
     def __init__(self):
         super(self.__class__, self).__init__()
         self.setupUi(self)
@@ -86,12 +86,12 @@ class LoginWindow(QtGui.QDialog, login_dialog.Ui_LoginBox):
         form = MainApp()
         form.show()
 
-class LogWindow(QtGui.QDialog, log_window.Ui_LogWindow):
+class LogWindow(QtWidgets.QDialog, log_window.Ui_LogWindow):
     def __init__(self):
         super(self.__class__, self).__init__()
         self.setupUi(self)
 
-class MainApp(QtGui.QMainWindow, mainwindow.Ui_MainWindow):
+class MainApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
     def __init__(self):
         # Explaining super is out of the scope of this article
         # So please google it if you're not familar with it
@@ -279,7 +279,7 @@ def main():
     print("*** " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + " ***")
     email = ""
     pw = ""
-    app = QtGui.QApplication(sys.argv)  # A new instance of QApplication
+    app = QtWidgets.QApplication(sys.argv)  # A new instance of QApplication
     global dialog
     global drv
     global driver_choice
